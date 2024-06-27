@@ -1,7 +1,7 @@
 # Uncomment the following imports before adding the Model code
 
 from django.db import models
-from django.utils.timezone import now
+# from django.utils.timezone import now
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
@@ -43,28 +43,33 @@ class CarModel(models.Model):
         ('TRUCK', 'Truck'),
         ('CONVERTIBLE', 'Convertible')
     ]
-    car_type = models.CharField(max_length=64, choices=CAR_TYPE_CHOICES, default = 'SEDAN')
+    car_type = models.CharField(max_length=64,
+                                choices=CAR_TYPE_CHOICES,
+                                default='SEDAN')
 
     year = models.IntegerField(null=False, default=2024,
-            validators=[
-                    MinValueValidator(2015),
-                    MaxValueValidator(2024) 
-                ]
-            )
+                               validators=[
+                                        MinValueValidator(2015),
+                                        MaxValueValidator(2024)
+                                    ])
 
     MOTOR_TYPE_CHOICES = [
         ('GAS', 'Gasoline'),
         ('DIESEL', 'Diesel'),
         ('ELECTRIC', 'Electric')
     ]
-    motor_type = models.CharField(max_length=64, choices=MOTOR_TYPE_CHOICES, default = 'GAS')
+    motor_type = models.CharField(max_length=64,
+                                  choices=MOTOR_TYPE_CHOICES,
+                                  default='GAS')
 
     # Extended car model description
     description = models.TextField()
 
-    # True if the car model is still in production, False if no brand-new models ara available from the maker
+    # True if the car model is still in production,
+    # False if no brand-new models ara available from the maker
     in_production = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"{self.car_make} {self.name} {self.year} | {self.car_type} | {self.motor_type}"
-
+        output = f"{self.car_make} {self.name} {self.year} \
+        | {self.car_type} | {self.motor_type}"
+        return output
