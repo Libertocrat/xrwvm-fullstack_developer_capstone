@@ -29,8 +29,8 @@ SECRET_KEY =\
 DEBUG = True
 
 APP_URL = 'https://humberrdz-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai'
-ALLOWED_HOSTS = ['localhost', app_url]
-CSRF_TRUSTED_ORIGINS = [app_url]
+ALLOWED_HOSTS = ['localhost', APP_URL]
+CSRF_TRUSTED_ORIGINS = [APP_URL]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
