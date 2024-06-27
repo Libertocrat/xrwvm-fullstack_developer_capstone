@@ -66,5 +66,5 @@ class CarModel(models.Model):
     in_production = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"{self.car_make}-{self.name} {self.year}"
+        return f"{self.car_make} {self.name} {self.year} | {self.car_type} | {self.motor_type}"
 
